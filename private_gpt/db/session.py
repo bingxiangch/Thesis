@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine, Engine
 from sqlalchemy.orm import sessionmaker, Session
+from private_gpt.config import Config
 
-
-DATABASE_URL = "postgresql://chenbingxiang:6822688@localhost:5432/thesis"
-
+# DATABASE_URL = "postgresql://chenbingxiang:6822688@localhost:5432/thesis"
+DATABASE_URL = Config.DATABASE_URL
 engine: Engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 

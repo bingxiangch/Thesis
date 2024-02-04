@@ -61,7 +61,7 @@ def add_file_data(data, db: Session = Depends(get_db)):
         file = db.query(File).filter(File.file_name == file_name).first()
         if not file:
             # If the file doesn't exist, create a new File record
-            file = File(file_name=file_name)
+            file = File(file_name=file_name, access_level = 1)
             db.add(file)
             db.commit()
             db.refresh(file)

@@ -3,7 +3,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 
-DATABASE_URL = "postgresql://chenbingxiang:6822688@localhost:5432/thesis"
+
+from private_gpt.config import Config
+
+# DATABASE_URL = "postgresql://chenbingxiang:6822688@localhost:5432/thesis"
+DATABASE_URL = Config.DATABASE_URL
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
